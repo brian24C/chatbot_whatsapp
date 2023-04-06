@@ -15,6 +15,26 @@ const MockAdapter = require("@bot-whatsapp/database/mock");
 const flowSecundario = addKeyword(["2", "siguiente"]).addAnswer([
   "📄 Aquí tenemos el flujo secundario",
 ]);
+//------------------------------------------------------------
+
+const TrySearchEmaild = async (correo) => {
+  const config = {
+    method: "get",
+    url: "https://appback-production.up.railway.app/api/v1/users/",
+    headers: {
+      accept: "application/json",
+    },
+  };
+  //const { data } = await axios(config).then((u) => u.data);
+  const { data } = await axios(config);
+
+  const dato_usuario = data.users.filter(
+    (m) => m.email === correo.toLowerCase() && m.role === "STUDENT_ROLE"
+  );
+
+  if (!dato_usuario || dato_usuario.length === 0) return false;
+  return true;
+};
 
 //------------------------------------------------------------
 
@@ -33,7 +53,7 @@ const pruebaApi = async () => {
   return firstFiveElements;
 };
 
-const TrySearchCorreo = async (correo) => {
+const TrySearchReserved = async (correo) => {
   const config = {
     method: "get",
     url: "https://appback-production.up.railway.app/api/v1/users/",
@@ -122,7 +142,7 @@ const flowReunion = addKeyword(["ver"])
         },
       ]);
 
-      const data_2 = await TrySearchCorreo(ctx.body);
+      const data_2 = await TrySearchReserved(ctx.body);
       console.log({ data_2: typeof data_2, data: data_2 });
       if (data_2 === null)
         flowDynamic([
@@ -187,19 +207,34 @@ const flowAgendar = addKeyword(["agendar"])
     ],
 
     { capture: true },
-    (ctx, { fallBack }) => {
+    async (ctx, { fallBack, flowDynamic }) => {
       let expReg = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
       if (!expReg.test(ctx.body))
         return fallBack("Ingrese un correo valido porfavor:");
+
+      flowDynamic([
+        {
+          body: "Espere un momento ...",
+        },
+      ]);
+
+      const data_2 = await TrySearchEmaild(ctx.body);
+      if (!data_2)
+        flowDynamic([
+          {
+            body: "Ups! No estás registrado en nuestra página. \nIngresa a https://feedingminds.netlify.app/#/mentors y registrate para poder agendar un reunión.",
+          },
+        ]);
+      if (data_2)
+        flowDynamic([
+          {
+            body: "Vemos que estás registrado! Porfavor ingresa a esta página y logeate para agendar una reunión con tu mentor favorito:\nhttps://feedingminds.netlify.app/ ",
+          },
+        ]);
     }
   )
-  .addAnswer(
-    "🎓 Listo! Porfavor ingresa a esta página y logeate para agendar una reunión:\nhttps://feedingminds.netlify.app/"
-  )
-  .addAnswer([
-    "🎓 Si aún no estás registrado en nuestra página, Ingresa a https://feedingminds.netlify.app/#/register para poder registrarte.",
-  ]);
+  .addAnswer("🎓 termina proceso.");
 
 //------------------------------------------------------------------------------------------------------------
 
