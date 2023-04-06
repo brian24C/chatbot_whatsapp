@@ -91,7 +91,7 @@ const flowPrueba = addKeyword(["p"])
       flowDynamic(data_2);
     }
   )
-  .addAnswer("gracias por la espera");
+  .addAnswer("gracias por la espera", { delay: 2000 });
 
 const flowMas = addKeyword(["mas", "más"]).addAnswer(
   [
@@ -133,6 +133,7 @@ const flowReunion = addKeyword(["ver"])
     async (ctx, { fallBack, flowDynamic }) => {
       let expReg = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
+      if (ctx.body === "1") return fallBack("...");
       if (!expReg.test(ctx.body))
         return fallBack("Ingrese un correo valido porfavor:");
 
@@ -144,6 +145,7 @@ const flowReunion = addKeyword(["ver"])
 
       const data_2 = await TrySearchReserved(ctx.body);
       console.log({ data_2: typeof data_2, data: data_2 });
+
       if (data_2 === null)
         flowDynamic([
           {
@@ -210,6 +212,8 @@ const flowAgendar = addKeyword(["agendar"])
     async (ctx, { fallBack, flowDynamic }) => {
       let expReg = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
+      if (ctx.body === "1") return fallBack("...");
+
       if (!expReg.test(ctx.body))
         return fallBack("Ingrese un correo valido porfavor:");
 
@@ -220,16 +224,18 @@ const flowAgendar = addKeyword(["agendar"])
       ]);
 
       const data_2 = await TrySearchEmaild(ctx.body);
+      console.log(ctx.body);
+      console.log(data_2);
       if (!data_2)
         flowDynamic([
           {
-            body: "Ups! No estás registrado en nuestra página. \nIngresa a https://feedingminds.netlify.app/#/mentors y registrate para poder agendar un reunión.",
+            body: "Ups! No estás registrado como Estudiante en nuestra página. \nIngresa a https://feedingminds.netlify.app/#/mentors y registrate como *estudiante* para poder agendar un reunión.",
           },
         ]);
       if (data_2)
         flowDynamic([
           {
-            body: "Vemos que estás registrado! Porfavor ingresa a esta página y logeate para agendar una reunión con tu mentor favorito:\nhttps://feedingminds.netlify.app/ ",
+            body: "Vemos que estás registrado! Porfavor ingresa a esta página y logeate para agendar una reunión con tu mentor favorito:\nhttps://feedingminds.netlify.app/#/login ",
           },
         ]);
     }
@@ -238,7 +244,7 @@ const flowAgendar = addKeyword(["agendar"])
 
 //------------------------------------------------------------------------------------------------------------
 
-const flowPrincipal = addKeyword(["hola", "alo", "1"])
+const flowPrincipal = addKeyword([EVENTS.WELCOME, "1"])
   .addAnswer("🙌 Hola bienvenido a *Feeding Minds!* ⚡")
   .addAnswer(
     [
