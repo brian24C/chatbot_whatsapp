@@ -12,6 +12,10 @@ const QRPortalWeb = require("@bot-whatsapp/portal");
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
 const MockAdapter = require("@bot-whatsapp/database/mock");
 
+const flowSecundario = addKeyword(["2", "siguiente"]).addAnswer([
+  "📄 Aquí tenemos el flujo secundario",
+]);
+
 //------------------------------------------------------------
 
 const pruebaApi = async () => {
@@ -112,9 +116,20 @@ const flowReunion = addKeyword(["ver"])
       if (!expReg.test(ctx.body))
         return fallBack("Ingrese un correo valido porfavor:");
 
+      flowDynamic([
+        {
+          body: "Estamos buscando ...",
+        },
+      ]);
+
       const data_2 = await TrySearchCorreo(ctx.body);
       console.log({ data_2: typeof data_2, data: data_2 });
-      if (data_2 === null) flowDynamic([{ body: "Ups! No estás registrado" }]);
+      if (data_2 === null)
+        flowDynamic([
+          {
+            body: "Ups! No estás registrado. \nIngresa a https://feedingminds.netlify.app/#/mentors y registrate",
+          },
+        ]);
       // if (data_2 === "MENTOR_ROLE")
       //   flowDynamic([
       //     {
@@ -132,7 +147,7 @@ const flowReunion = addKeyword(["ver"])
       }
     }
   )
-  .addAnswer("fin");
+  .addAnswer("fin", { delay: 3500 });
 
 //------------------------------------------------------------------------------------------------------------
 
@@ -179,7 +194,12 @@ const flowAgendar = addKeyword(["agendar"])
         return fallBack("Ingrese un correo valido porfavor:");
     }
   )
-  .addAnswer(["🎓 Por favor escribe tu carrera a la que postulas:"]);
+  .addAnswer(
+    "🎓 Listo! Porfavor ingresa a esta página y logeate para agendar una reunión:\nhttps://feedingminds.netlify.app/"
+  )
+  .addAnswer([
+    "🎓 Si aún no estás registrado en nuestra página, Ingresa a https://feedingminds.netlify.app/#/register para poder registrarte.",
+  ]);
 
 //------------------------------------------------------------------------------------------------------------
 
