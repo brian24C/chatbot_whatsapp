@@ -1,0 +1,57 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '51915247359@s.whatsapp.net',
+    fromMe: false,
+    id: '25CB0913F42F9827335D9F981EEC4D0A',
+    participant: undefined
+  },
+  messageTimestamp: 1680756200,
+  pushName: 'Jose=]',
+  message: Message {
+    conversation: 'B',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'B',
+  from: '51915247359'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51915247359@s.whatsapp.net',
+    fromMe: false,
+    id: '1DCFE4014D4D9B3E7BF22F43425554F2',
+    participant: undefined
+  },
+  messageTimestamp: 1680756204,
+  pushName: 'Jose=]',
+  message: Message {
+    conversation: 'Ver',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Ver',
+  from: '51915247359'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51915247359@s.whatsapp.net',
+    fromMe: false,
+    id: 'EE3D5F3619BD5855C936670170B42EED',
+    participant: undefined
+  },
+  messageTimestamp: 1680756206,
+  pushName: 'Jose=]',
+  message: Message {
+    conversation: 'Bry4n_jos43@hotmail.com',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Bry4n_jos43@hotmail.com',
+  from: '51915247359'
+}
