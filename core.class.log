@@ -2,29 +2,67 @@
   key: {
     remoteJid: '51915247359@s.whatsapp.net',
     fromMe: false,
-    id: '25CB0913F42F9827335D9F981EEC4D0A',
+    id: 'BE0C849A0678886C92436C39D6D76F9E',
     participant: undefined
   },
-  messageTimestamp: 1680756200,
+  messageTimestamp: 1680758898,
   pushName: 'Jose=]',
   message: Message {
-    conversation: 'B',
+    conversation: 'J',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: 'B',
+  body: 'J',
   from: '51915247359'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '51915247359@s.whatsapp.net',
     fromMe: false,
-    id: '1DCFE4014D4D9B3E7BF22F43425554F2',
+    id: '70EBA7D9B1A88B1E60A4AE153370CD36',
     participant: undefined
   },
-  messageTimestamp: 1680756204,
+  messageTimestamp: 1680758901,
+  pushName: 'Jose=]',
+  message: Message {
+    conversation: 'H',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'H',
+  from: '51915247359'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51915247359@s.whatsapp.net',
+    fromMe: false,
+    id: '5A2D778893030515E7122E5DBC4A7458',
+    participant: undefined
+  },
+  messageTimestamp: 1680758903,
+  pushName: 'Jose=]',
+  message: Message {
+    conversation: 'Hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Hola',
+  from: '51915247359'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51915247359@s.whatsapp.net',
+    fromMe: false,
+    id: '84A9107DCE935ADE676C2E2D6C4C65E7',
+    participant: undefined
+  },
+  messageTimestamp: 1680758906,
   pushName: 'Jose=]',
   message: Message {
     conversation: 'Ver',
@@ -40,10 +78,10 @@
   key: {
     remoteJid: '51915247359@s.whatsapp.net',
     fromMe: false,
-    id: 'EE3D5F3619BD5855C936670170B42EED',
+    id: 'C54D76B9FA55DE6F265F2DEBEF80D724',
     participant: undefined
   },
-  messageTimestamp: 1680756206,
+  messageTimestamp: 1680758912,
   pushName: 'Jose=]',
   message: Message {
     conversation: 'Bry4n_jos43@hotmail.com',
@@ -53,5 +91,157 @@
     }
   },
   body: 'Bry4n_jos43@hotmail.com',
+  from: '51915247359'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51915247359@s.whatsapp.net',
+    fromMe: false,
+    id: '12378DEAE22947C36DD0860445EA917D',
+    participant: undefined
+  },
+  messageTimestamp: 1680758923,
+  pushName: 'Jose=]',
+  message: Message {
+    conversation: 'B',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'B',
+  from: '51915247359'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51915247359@s.whatsapp.net',
+    fromMe: false,
+    id: 'E9E66139764BD606B0E617FA3F6617FA',
+    participant: undefined
+  },
+  messageTimestamp: 1680758926,
+  pushName: 'Jose=]',
+  message: Message {
+    conversation: 'Hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Hola',
+  from: '51915247359'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51915247359@s.whatsapp.net',
+    fromMe: false,
+    id: '89B61218DE9712610AF9CE13725B1B74',
+    participant: undefined
+  },
+  messageTimestamp: 1680758928,
+  pushName: 'Jose=]',
+  message: Message {
+    conversation: 'Ver',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Ver',
+  from: '51915247359'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51915247359@s.whatsapp.net',
+    fromMe: false,
+    id: '9889806FD3D5DF69231657AB00D5F092',
+    participant: undefined
+  },
+  messageTimestamp: 1680758944,
+  pushName: 'Jose=]',
+  message: Message {
+    conversation: 'Mentor1004@hotmail.com',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Mentor1004@hotmail.com',
+  from: '51915247359'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51915247359@s.whatsapp.net',
+    fromMe: false,
+    id: '9F635CB7B07DD1D6308900845E87119E',
+    participant: undefined
+  },
+  messageTimestamp: 1680758955,
+  pushName: 'Jose=]',
+  message: Message {
+    conversation: 'J',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'J',
+  from: '51915247359'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51915247359@s.whatsapp.net',
+    fromMe: false,
+    id: '163D96292FB6ED4AEEC8F93B5BDC9F88',
+    participant: undefined
+  },
+  messageTimestamp: 1680758960,
+  pushName: 'Jose=]',
+  message: Message {
+    conversation: 'Hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Hola',
+  from: '51915247359'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51915247359@s.whatsapp.net',
+    fromMe: false,
+    id: '2FEA6BB68FF30CE5CEAA0B5333C12669',
+    participant: undefined
+  },
+  messageTimestamp: 1680758963,
+  pushName: 'Jose=]',
+  message: Message {
+    conversation: 'Ver',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Ver',
+  from: '51915247359'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51915247359@s.whatsapp.net',
+    fromMe: false,
+    id: '170B00EC5B673E1256439978A34FAC5C',
+    participant: undefined
+  },
+  messageTimestamp: 1680758967,
+  pushName: 'Jose=]',
+  message: Message {
+    conversation: 'Mentor1004@hotmail.com',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Mentor1004@hotmail.com',
   from: '51915247359'
 }

@@ -37,15 +37,17 @@ const TrySearchCorreo = async (correo) => {
       accept: "application/json",
     },
   };
-  //const { data } = await axios(config).then((u) => u.data);
+
   const { data } = await axios(config);
   const dato_usuario = data.users.filter(
-    (m) => m.email === correo && m.role === "STUDENT_ROLE"
+    (m) => m.email === correo.toLowerCase() && m.role === "STUDENT_ROLE"
   );
 
-  if (!dato_usuario) return null;
+  if (!dato_usuario || dato_usuario.length === 0) return null;
 
-  console.log(dato_usuario[0].reservedTimes.length);
+  // if (dato_usuario[0].role === "MENTOR_ROLE") return undefined;
+
+  //console.log(dato_usuario[0].reservedTimes.length);
   if (dato_usuario[0].reservedTimes.length === 0) return false;
 
   //se manda el objeto {datos...}
@@ -104,28 +106,33 @@ const flowReunion = addKeyword(["ver"])
       "\n↩️ *1* Para regresar al inicio.",
     ],
     { capture: true },
-    (ctx, { fallBack }) => {
+    async (ctx, { fallBack, flowDynamic }) => {
       let expReg = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
       if (!expReg.test(ctx.body))
         return fallBack("Ingrese un correo valido porfavor:");
+
+      const data_2 = await TrySearchCorreo(ctx.body);
+      console.log({ data_2: typeof data_2, data: data_2 });
+      if (data_2 === null) flowDynamic([{ body: "Ups! No estás registrado" }]);
+      // if (data_2 === "MENTOR_ROLE")
+      //   flowDynamic([
+      //     {
+      //       body: "Estás registrado como mentor!. Ingresa a https://feedingminds.netlify.app/#/mentors y registrate como estudiante para poder agendar reuniones.",
+      //     },
+      //   ]);
+      if (data_2 === false)
+        flowDynamic([{ body: "No tienes reuniones agendadas" }]);
+
+      if (data_2) {
+        flowDynamic([
+          { body: "✅ Si tienes reunión agendada!" },
+          { body: "Información de reunión:" },
+        ]);
+      }
     }
   )
-  .addAnswer(["Estamos revisando.."], null, async (ctx, { flowDynamic }) => {
-    const data_2 = await TrySearchCorreo("bry4n_jos43@hotmail.com");
-
-    if (data_2 === null) flowDynamic([{ body: "Ups! No estás registrado" }]);
-    if (data_2 === false)
-      flowDynamic([{ body: "No tienes reuniones agendadas" }]);
-
-    if (data_2) {
-      flowDynamic([
-        { body: "✅ Si tienes reunión agendada!" },
-        { body: "Información de reunión:" },
-      ]);
-    }
-  })
-  .addAnswer(["✅ fin"]);
+  .addAnswer("fin");
 
 //------------------------------------------------------------------------------------------------------------
 
